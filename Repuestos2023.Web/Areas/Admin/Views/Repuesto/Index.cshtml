@@ -1,0 +1,38 @@
+﻿@using Repuestos2023MVC.Web.ViewModels;
+@model IEnumerable<RepuestoListVm>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Lista de repuestos</h2>
+
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Repuesto" asp-action="UpSert" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp;
+                New Repuesto
+            </a>
+        </div>
+    </div>
+    <table id="tblRepuestos" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Author</th>
+                <th>PrecioLista</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</div>
+@section Scripts{
+    <script src="~/js/product.js"></script>
+}
+
+

@@ -1,0 +1,45 @@
+﻿@using Repuestos2023MVC.Web.ViewModels
+@model RepuestoProveedorEditVm
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" asp-controller="RepuestoProveedor" asp-action="Create">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Nuevo registro</h2>
+        </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <div class="mb-3">
+            <label asp-for="RepuestoId"></label>
+            <select asp-for="RepuestoId" asp-items="@Model.Repuestos" class="form-select">
+                <option disabled selected>-- Seleccionar Repuesto --</option>
+            </select>
+            <span asp-validation-for="RepuestoId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ProveedorId"></label>
+            <select asp-for="ProveedorId" asp-items="@Model.Proveedores" class="form-select">
+                <option disabled selected>-- Seleccionar Proveedor --</option>
+            </select>
+            <span asp-validation-for="ProveedorId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:200px">
+            <i class="bi bi-floppy"></i> &nbsp;
+            Save
+        </button>
+        <a asp-controller="Ciudad" asp-action="Index" style="width:200px" class="btn btn-success">
+            <i class="bi bi-backspace"></i>  &nbsp;
+            Back to List
+        </a>
+
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+}

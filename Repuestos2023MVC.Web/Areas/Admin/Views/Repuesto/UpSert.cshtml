@@ -1,0 +1,98 @@
+﻿@using Repuestos2023MVC.Web.ViewModels;
+@model RepuestoEditVm;
+
+@{
+    ViewData["Title"] = "UpSert";
+}
+
+<form method="post" asp-controller="Repuesto" asp-action="UpSert" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Repuesto.RepuestoId" />
+    <input type="hidden" asp-for="Repuesto.Imagen" />
+    <div class="border p-3 mt-4 row">
+        <div class="row">
+            <div class="col-9">
+                <div class="row pb-2">
+                    <h2 class="text-primary">@(Model.Repuesto.RepuestoId == 0 ? "Nuevo Repuesto" : "Editar Repuesto")</h2>
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Repuesto.Descripcion" class="form-label"></label>
+                    <input asp-for="Repuesto.Descripcion" class="form-control" />
+                    <span asp-validation-for="Repuesto.Descripcion" class="text-danger"></span>
+                </div>
+                
+
+            </div>
+            <div class="col-3">
+                <img src="@Model.Repuesto.Imagen" width="150px" height="150px" style="border:1px solid; border-radius:5px;"
+            </div>
+        </div>
+        
+        <div class="mb-3  col-6">
+            <label asp-for="Repuesto.PrecioLista" class="form-label"></label>
+            <input asp-for="Repuesto.PrecioLista" class="form-control" />
+            <span asp-validation-for="Repuesto.PrecioLista" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 col-6">
+            <label asp-for="Repuesto.PrecioUnitario" class="form-label"></label>
+            <input asp-for="Repuesto.PrecioUnitario" class="form-control" />
+            <span asp-validation-for="Repuesto.PrecioUnitario" class="text-danger"></span>
+        </div>
+        <div class="mb-3 col-6">
+            <label asp-for="Repuesto.Precio50" class="form-label"></label>
+            <input asp-for="Repuesto.Precio50" class="form-control" />
+            <span asp-validation-for="Repuesto.Precio50" class="text-danger"></span>
+        </div>
+        <div class="mb-3 col-6">
+            <label asp-for="Repuesto.Precio100" class="form-label"></label>
+            <input asp-for="Repuesto.Precio100" class="form-control" />
+            <span asp-validation-for="Repuesto.Precio100" class="text-danger"></span>
+        </div>
+        <div class="mb-3 col-6">
+            <label asp-for="Repuesto.CategoriaId" class="form-label"></label>
+            <select asp-for="Repuesto.CategoriaId" asp-items="Model.CategoriesList" class="form-select">
+                <option disabled selected>Seleccione Categoría</option>
+            </select>
+            <span asp-validation-for="Repuesto.CategoriaId" class="text-danger"></span>
+        </div>
+        
+        <div class="mb-3">
+            <label asp-for="Repuesto.Imagen"></label>
+            <input type="file" id="uploadBox" name="file" class="form-control" />
+        </div>
+
+        <div class="col-12">
+            @if (Model.Repuesto.RepuestoId == 0)
+            {
+                <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:200px">
+                    <i class="bi bi-floppy"></i> &nbsp;
+                    Guardar
+                </button>
+
+            }
+            else
+            {
+                <button type="submit" class="btn btn-warning" style="width:200px">
+                    <i class="bi bi-floppy"></i> &nbsp;
+                    Guardar
+                </button>
+
+            }
+            <a asp-controller="Repuesto" asp-action="Index" style="width:200px" class="btn btn-success">
+                <i class="bi bi-backspace"></i>  &nbsp;
+                Volver
+            </a>
+
+        </div>
+
+    </div>
+</form>
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+    
+
+}

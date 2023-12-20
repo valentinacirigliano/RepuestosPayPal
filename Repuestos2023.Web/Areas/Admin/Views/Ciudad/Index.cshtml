@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Repuestos2023.Models.Models.Ciudad>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row w-75">
+        <div class="col-6">
+            <h2>City List</h2>
+
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Ciudad" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp;
+                New City
+            </a>
+        </div>
+    </div>
+    @if (TempData["success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@TempData["success"]</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <table class="table table-bordered table-striped w-75">
+        <thead>
+            <tr>
+                <th style="width:50%">City Name</th>
+                <th style="width:25%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>
+                            <a class="btn btn-warning" asp-controller="Ciudad" asp-action="Edit" asp-route-id="@item.CiudadId">
+                                <i class="bi bi-pencil-square"></i>&nbsp;
+                                Edit
+                            </a>
+                            <a class="btn btn-danger" asp-controller="Ciudad" asp-action="Delete" asp-route-id="@item.CiudadId">
+                                <i class="bi bi-trash3"></i> &nbsp;
+                                Delete
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">
+                        No cities added yet
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+

@@ -1,0 +1,66 @@
+﻿/* Estilos generales */
+#tblRepuestos_wrapper {
+    margin-bottom: 20px; /* Ajusta la distancia entre la tabla y los elementos de paginado */
+}
+
+/* Agrega un margen arriba y abajo a la clase input-group */
+.input-group {
+    margin: 10px 0;
+}
+
+/* Estilos para la barra de búsqueda y la opción de mostrar entradas */
+#tblRepuestos_filter,
+#tblRepuestos_length {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px; /* Ajusta el margen inferior */
+}
+
+    /* Estilos para los elementos dentro de la barra de búsqueda */
+    #tblRepuestos_filter label,
+    #tblRepuestos_filter input {
+        vertical-align: middle; /* Alinea verticalmente el texto y el campo de entrada */
+    }
+
+    /* Estilos para la opción de mostrar entradas */
+    #tblRepuestos_length label,
+    #tblRepuestos_length select {
+        vertical-align: middle; /* Alinea verticalmente el texto y el menú desplegable */
+    }
+
+/* Estilos para los botones de paginado */
+#tblRepuestos_paginate {
+    text-align: center;
+}
+
+    #tblRepuestos_paginate .paginate_button {
+        margin: 0 5px; /* Ajusta la distancia entre los botones */
+        border: 1px solid #000; /* Borde negro */
+        border-radius: 0; /* Sin bordes redondeados */
+        padding: 5px 10px; /* Ajusta el espacio interno */
+        background-color: #fff; /* Fondo blanco */
+        color: #000; /* Texto en color negro */
+        text-decoration: none; /* Elimina el subrayado */
+    }
+
+        #tblRepuestos_paginate .paginate_button.current {
+            background-color: #000; /* Color de fondo para la página actual */
+            color: #fff; /* Texto en color blanco para la página actual */
+            border: 1px solid #000; /* Borde para la página actual */
+        }
+
+        #tblRepuestos_paginate .paginate_button:hover {
+            background-color: #bdc3c7; /* Color de fondo al pasar el ratón sobre los botones */
+            border: 1px solid #bdc3c7; /* Borde al pasar el ratón sobre los botones */
+            color: #000; /* Texto en color negro al pasar el ratón sobre los botones */
+        }
+        /* Estilo para botones deshabilitados */
+        #tblRepuestos_paginate .paginate_button.disabled {
+            opacity: 0.5; /* Reduce la opacidad para indicar que está deshabilitado */
+            pointer-events: none; /* Deshabilita eventos de puntero */
+        }
+.card-img-top {
+    object-fit: cover;
+    height: 200px; /* Establece la altura deseada */
+    width: 100%;
+}
